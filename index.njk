@@ -1,0 +1,27 @@
+---
+layout: layout.njk
+title: "Treasure from Every Horizon"
+---
+
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Top Story -->
+    {% set top_story = collections.articles | reverse | first %}
+    <section id="top-stories" class="mb-12">
+      <article class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="md:pr-8">
+          <p class="text-sm font-bold text-blue-600 uppercase tracking-wide">{{ top_story.data.section }}</p>
+          <h1 class="mt-2 text-4xl md:text-5xl font-bold leading-tight text-gray-900 dark:text-white">{{ top_story.data.title }}</h1>
+          <p class="mt-4 text-lg text-gray-700 dark:text-gray-300">{{ top_story.data.summary }}</p>
+          <div class="mt-4">
+            <span class="text-sm font-semibold">By {{ top_story.data.author }}</span>
+            <span class="text-gray-500 mx-2">•</span>
+            <time class="text-sm text-gray-500">{{ top_story.date | date: "long" }}</time>
+          </div>
+           <a href="{{ top_story.url }}" class="mt-4 inline-block text-blue-600 font-semibold hover:underline">Read full article →</a>
+        </div>
+        <img src="{{ top_story.data.image }}" alt="{{ top_story.data.title }}" class="w-full h-auto object-cover">
+      </article>
+    </section>
+
+    <!-- More sections here, looping through collections.articles -->
+</div>
