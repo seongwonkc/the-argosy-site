@@ -1,0 +1,38 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "articles"
+    label: "Articles"
+    folder: "articles"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false }
+      - { label: "Author", name: "author", widget: "string", default: "Staff Reporter" }
+      - label: "Section"
+        name: "section"
+        widget: "select"
+        options:
+          - "Politics & Diplomacy"
+          - "Public Health"
+          - "Business"
+          - "Science & Technology"
+          - "Environment & Sustainability"
+          - "Education"
+          - "College Admissions"
+          - "Sports"
+          - "Culture & Religion"
+          - "Opinion"
+        default: "Education"
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }

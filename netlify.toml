@@ -1,0 +1,4 @@
+
+[build]
+  command = "node build.js"
+  publish = "."
