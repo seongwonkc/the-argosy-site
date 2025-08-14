@@ -7,16 +7,15 @@
   <meta name="description" content="The Argosy — Treasure from Every Horizon. A student-run newspaper bringing news and ideas from every horizon." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-            serif: ['Playfair Display', 'ui-serif', 'Georgia', 'serif']
+            sans: ['Merriweather', 'serif'], // Using a readable serif for body
+            serif: ['Roboto Slab', 'serif'] // Using a strong slab serif for headlines
           }
         }
       },
@@ -26,15 +25,10 @@
   <style>
     :focus-visible { outline: 3px solid #3b82f6; outline-offset: 2px; }
     .skip-link { position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden; }
-    .skip-link:focus { left: 1rem; top: 1rem; width:auto; height:auto; background:#111827; color:white; padding:.5rem .75rem; border-radius:.375rem; z-index:9999; }
-    .site-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; letter-spacing: .5px; }
-    @media (min-width: 768px){ .site-title { font-size: 2.25rem; } }
-    .site-tagline { font-family: 'Lato', sans-serif; font-size: .8rem; letter-spacing: .15em; text-transform: uppercase; color: #6b7280; }
-    .dark .site-tagline { color: #9ca3af; }
-  
-    /* Hide horizontal scrollbar but allow scroll */
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .skip-link:focus { left: 1rem; top: 1rem; width:auto; height:auto; background:#111827; color:white; padding:.5rem .75rem; z-index:9999; }
+    body { font-family: 'Merriweather', serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Roboto Slab', serif; }
+    .site-title { font-family: 'Roboto Slab', serif; font-size: 2.25rem; font-weight: 700; }
   </style>
 
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
@@ -43,39 +37,37 @@
   <link rel="manifest" href="/assets/site.webmanifest">
   <link rel="shortcut icon" href="/assets/favicon.ico">
 </head>
-<body class="bg-gray-50 text-gray-800 dark:bg-gray-950 dark:text-gray-100">
+<body class="bg-white text-gray-900 dark:bg-black dark:text-gray-100">
   <a href="#content" class="skip-link">Skip to content</a>
 
   <!-- Header -->
-  <header class="bg-white/90 dark:bg-gray-900/90 backdrop-blur sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800">
+  <header class="bg-white/95 dark:bg-black/95 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between py-3">
+      <div class="flex items-center justify-between py-4">
         <a href="index.html" class="flex items-center gap-3 text-2xl font-serif font-bold tracking-tight shrink-0">
-          <img src="/assets/argosy-logo.png" alt="The Argosy logo" class="h-8 md:h-9" />
+          <img src="/assets/argosy-logo.png" alt="The Argosy logo" class="h-9 md:h-10" />
           <span class="site-title">The Argosy</span>
         </a>
 
-        <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Primary">
+        <nav class="hidden md:flex items-center gap-6 text-sm font-semibold" aria-label="Primary">
           <!-- Categories Dropdown -->
           <div class="relative" id="categories-dropdown">
             <button id="categories-btn" class="flex items-center gap-1 hover:text-blue-600">
               <span>Categories</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
             </button>
-            <div id="categories-menu" class="hidden absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-20">
-              <div class="py-1">
-                <a href="#politics" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Politics</a>
-                <a href="#public-health" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Health</a>
-                <a href="#business" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Business</a>
-                <a href="#science-tech" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Science</a>
-                <a href="#environment" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Environment</a>
-                <a href="#education" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Education</a>
-                <a href="#college-admissions" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Admissions</a>
-                <a href="#sports" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Sports</a>
-                <a href="#culture" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Culture</a>
-                <a href="#opinion" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Opinion</a>
+            <div id="categories-menu" class="hidden absolute left-0 mt-2 w-56 bg-white dark:bg-gray-900 shadow-lg ring-1 ring-black ring-opacity-5 z-20">
+              <div class="grid grid-cols-2 gap-1 p-2">
+                <a href="category.html?c=politics" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Politics</a>
+                <a href="category.html?c=health" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Health</a>
+                <a href="category.html?c=business" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Business</a>
+                <a href="category.html?c=science" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Science</a>
+                <a href="category.html?c=environment" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Environment</a>
+                <a href="category.html?c=education" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Education</a>
+                <a href="category.html?c=admissions" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Admissions</a>
+                <a href="category.html?c=sports" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Sports</a>
+                <a href="category.html?c=culture" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Culture</a>
+                <a href="category.html?c=opinion" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Opinion</a>
               </div>
             </div>
           </div>
@@ -85,40 +77,36 @@
         </nav>
 
         <div class="hidden md:flex items-center gap-2">
-          <label for="search" class="sr-only">Search</label>
-          <input id="search" type="search" placeholder="Search articles…" class="px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md text-sm bg-white dark:bg-gray-900" />
-          <button id="searchBtn" class="px-3 py-2 text-sm rounded-md bg-blue-600 text-white hover:bg-blue-700">Search</button>
-          <button id="themeToggle" class="ml-2 px-2.5 py-2 text-sm rounded-md border border-gray-300 dark:border-gray-700" aria-pressed="false" aria-label="Toggle dark mode">🌙</button>
+          <button id="themeToggle" class="ml-2 px-2.5 py-2 text-sm border border-gray-300 dark:border-gray-700" aria-pressed="false" aria-label="Toggle dark mode">🌙</button>
         </div>
 
-        <button id="menuBtn" class="md:hidden p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+        <button id="menuBtn" class="md:hidden p-2" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
           <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900" role="dialog" aria-label="Mobile menu">
-      <div class="px-4 py-3 space-y-4">
-        <input id="mSearch" type="search" placeholder="Search articles…" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-900" />
-        <div class="space-y-2 text-sm">
-          <a class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="about.html">About</a>
-          <a class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="team.html">Team</a>
-          <a class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="recruit.html">Join</a>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 dark:border-gray-800" role="dialog" aria-label="Mobile menu">
+      <div class="px-4 py-4 space-y-4">
+        <div class="space-y-2 text-base font-semibold">
+          <a class="block px-3 py-2" href="about.html">About</a>
+          <a class="block px-3 py-2" href="team.html">Team</a>
+          <a class="block px-3 py-2" href="recruit.html">Join</a>
         </div>
-        <div>
-          <h3 class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Categories</h3>
-          <div class="mt-2 grid grid-cols-2 gap-2 text-sm">
-            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#politics">Politics</a>
-            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#public-health">Health</a>
-            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#business">Business</a>
-            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#science-tech">Science</a>
-            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#environment">Environment</a>
-            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#education">Education</a>
-            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#college-admissions">Admissions</a>
-            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#sports">Sports</a>
-            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#culture">Culture</a>
-            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#opinion">Opinion</a>
+        <div class="border-t border-gray-200 dark:border-gray-800 pt-4">
+          <h3 class="px-3 text-sm font-semibold text-gray-500 uppercase tracking-wider">Categories</h3>
+          <div class="mt-2 grid grid-cols-2 gap-x-4 gap-y-2 text-base font-semibold">
+            <a class="block px-3 py-2" href="category.html?c=politics">Politics</a>
+            <a class="block px-3 py-2" href="category.html?c=health">Health</a>
+            <a class="block px-3 py-2" href="category.html?c=business">Business</a>
+            <a class="block px-3 py-2" href="category.html?c=science">Science</a>
+            <a class="block px-3 py-2" href="category.html?c=environment">Environment</a>
+            <a class="block px-3 py-2" href="category.html?c=education">Education</a>
+            <a class="block px-3 py-2" href="category.html?c=admissions">Admissions</a>
+            <a class="block px-3 py-2" href="category.html?c=sports">Sports</a>
+            <a class="block px-3 py-2" href="category.html?c=culture">Culture</a>
+            <a class="block px-3 py-2" href="category.html?c=opinion">Opinion</a>
           </div>
         </div>
       </div>
@@ -127,96 +115,94 @@
 
   <main id="content" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
     <!-- Top Story -->
-    <section id="top-stories" class="mb-12 scroll-mt-24">
-      <h2 class="text-3xl font-serif font-bold mb-6 pb-2 border-b-2 border-blue-600">Top Story</h2>
-      <article class="bg-white dark:bg-gray-900 rounded-xl shadow ring-1 ring-gray-200 dark:ring-gray-800 overflow-hidden">
-        <div class="md:flex">
-          <img id="top-image" class="md:w-1/2 h-64 md:h-auto object-cover" src="https://placehold.co/800x600/94a3b8/ffffff?text=Top+Story" alt="Top story image" onerror="this.onerror=null;this.src='https://placehold.co/800x600/cccccc/ffffff?text=Image+Not+Found';">
-          <div class="p-6 md:p-8 md:w-1/2 flex flex-col justify-center">
-            <p id="top-date" class="text-sm text-gray-500">Campus News • Aug 15, 2025</p>
-            <h3 id="top-title" class="mt-2 text-3xl font-serif font-bold leading-tight">University Announces Major Campus Expansion Project</h3>
-            <p id="top-summary" class="mt-3 text-gray-700 dark:text-gray-300">The initiative adds state-of-the-art facilities for science and arts, breaking ground next spring — the largest project in university history.</p>
-            <div class="mt-4 flex items-center gap-4">
-              <span id="top-author" class="text-sm font-medium">By Jane Doe</span>
-              <a id="top-link" href="#" class="text-sm text-blue-600 hover:underline">Read full article →</a>
-            </div>
+    <section id="top-stories" class="mb-12">
+      <article class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="md:pr-8">
+          <p id="top-category" class="text-sm font-bold text-blue-600 uppercase tracking-wide">Campus News</p>
+          <h1 id="top-title" class="mt-2 text-4xl md:text-5xl font-bold leading-tight text-gray-900 dark:text-white">University Announces Major Campus Expansion Project</h1>
+          <p id="top-summary" class="mt-4 text-lg text-gray-700 dark:text-gray-300">The initiative adds state-of-the-art facilities for science and arts, breaking ground next spring — the largest project in university history.</p>
+          <div class="mt-4">
+            <span id="top-author" class="text-sm font-semibold">By Jane Doe</span>
+            <span class="text-gray-500 mx-2">•</span>
+            <time id="top-date" class="text-sm text-gray-500">Aug 15, 2025</time>
           </div>
+           <a id="top-link" href="#" class="mt-4 inline-block text-blue-600 font-semibold hover:underline">Read full article →</a>
         </div>
+        <img id="top-image" class="w-full h-auto object-cover" src="https://placehold.co/800x600/e2e8f0/4a5568?text=Top+Story" alt="Top story image" onerror="this.onerror=null;this.src='https://placehold.co/800x600/cccccc/ffffff?text=Image+Not+Found';">
       </article>
     </section>
 
     <!-- Featured grid -->
     <section class="mb-12" id="featured">
-      <h2 class="text-3xl font-serif font-bold mb-6 pb-2 border-b-2 border-blue-600">Featured Stories</h2>
+      <h2 class="text-3xl font-bold mb-6 pb-3 border-b-2 border-gray-800 dark:border-gray-200">Featured Stories</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Articles will be loaded here by script -->
       </div>
     </section>
     
     <!-- Main content grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-12">
       <!-- Main column for sections -->
       <div class="lg:col-span-2 space-y-12">
-        <section id="politics" class="scroll-mt-24"><h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Politics & Diplomacy</h2><div class="space-y-6"></div></section>
-        <section id="public-health" class="scroll-mt-24"><h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Public Health</h2><div class="space-y-6"></div></section>
-        <section id="business" class="scroll-mt-24"><h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Business</h2><div class="space-y-6"></div></section>
-        <section id="science-tech" class="scroll-mt-24"><h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Science & Technology</h2><div class="space-y-6"></div></section>
-        <section id="environment" class="scroll-mt-24"><h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Environment & Sustainability</h2><div class="space-y-6"></div></section>
-        <section id="education" class="scroll-mt-24"><h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Education</h2><div class="space-y-6"></div></section>
-        <section id="college-admissions" class="scroll-mt-24"><h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">College Admissions</h2><div class="space-y-6"></div></section>
-        <section id="sports" class="scroll-mt-24"><h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Sports</h2><div class="space-y-6"></div></section>
+        <section id="politics"><h2 class="text-2xl font-bold mb-4 pb-2 border-b border-gray-300 dark:border-gray-700">Politics & Diplomacy</h2><div class="space-y-6"></div> <a href="category.html?c=politics" class="font-semibold text-blue-600 hover:underline">More in Politics →</a></section>
+        <section id="health"><h2 class="text-2xl font-bold mb-4 pb-2 border-b border-gray-300 dark:border-gray-700">Public Health</h2><div class="space-y-6"></div> <a href="category.html?c=health" class="font-semibold text-blue-600 hover:underline">More in Health →</a></section>
+        <section id="business"><h2 class="text-2xl font-bold mb-4 pb-2 border-b border-gray-300 dark:border-gray-700">Business</h2><div class="space-y-6"></div> <a href="category.html?c=business" class="font-semibold text-blue-600 hover:underline">More in Business →</a></section>
       </div>
 
       <!-- Sidebar -->
       <aside class="lg:col-span-1 space-y-8">
-        <section id="opinion" class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow ring-1 ring-gray-200 dark:ring-gray-800 scroll-mt-24">
-          <h2 class="text-xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Opinion</h2>
-          <ul class="space-y-4 text-sm"></ul>
+        <section id="opinion" class="bg-gray-50 dark:bg-gray-900 p-6 border border-gray-200 dark:border-gray-800">
+          <h2 class="text-xl font-bold mb-4 pb-2 border-b border-gray-300 dark:border-gray-700">Opinion</h2>
+          <ul class="space-y-4"></ul>
         </section>
-        <section id="culture" class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow ring-1 ring-gray-200 dark:ring-gray-800 scroll-mt-24">
-          <h2 class="text-xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Culture & Religion</h2>
-          <ul class="space-y-4 text-sm"></ul>
+        <section id="culture" class="bg-gray-50 dark:bg-gray-900 p-6 border border-gray-200 dark:border-gray-800">
+          <h2 class="text-xl font-bold mb-4 pb-2 border-b border-gray-300 dark:border-gray-700">Culture & Religion</h2>
+          <ul class="space-y-4"></ul>
         </section>
       </aside>
     </div>
-
-    <!-- Call to Action Section -->
-    <section class="mt-16 text-center bg-gray-100 dark:bg-gray-900 p-8 rounded-lg">
-        <h2 class="text-3xl font-serif font-bold">Explore More</h2>
-        <p class="mt-2 text-gray-600 dark:text-gray-300">Learn about our mission or meet the students behind the stories.</p>
-        <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
-             <a href="about.html" class="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">About The Argosy</a>
-            <a href="team.html" class="inline-block bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600 transition-colors">Meet the Team</a>
-        </div>
-    </section>
-
   </main>
 
-  <footer class="bg-gray-900 text-gray-300 mt-12">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  <footer class="bg-gray-900 text-gray-300 mt-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
         <div>
-          <h3 class="text-xl font-serif font-bold text-white">The Argosy</h3>
-          <p class="text-gray-400">The independent voice of the student community.</p>
-        </div>
-        <div>
-          <h4 class="font-semibold text-white">Quick Links</h4>
-          <ul class="mt-2 space-y-1">
-            <li><a href="about.html" class="hover:text-white">About Us</a></li>
-            <li><a href="team.html" class="hover:text-white">Our Team</a></li>
-            <li><a href="recruit.html" class="hover:text-white">Join Us</a></li>
-            <li><a href="corrections.html" class="hover:text-white">Corrections & Standards</a></li>
+          <h4 class="font-bold text-white">Sections</h4>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="category.html?c=politics" class="hover:text-white">Politics</a></li>
+            <li><a href="category.html?c=health" class="hover:text-white">Health</a></li>
+            <li><a href="category.html?c=sports" class="hover:text-white">Sports</a></li>
+            <li><a href="category.html?c=opinion" class="hover:text-white">Opinion</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-semibold text-white">Follow Us</h4>
-          <div class="mt-2 flex gap-4">
+          <h4 class="font-bold text-white">About Us</h4>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="about.html" class="hover:text-white">About The Argosy</a></li>
+            <li><a href="team.html" class="hover:text-white">Our Team</a></li>
+            <li><a href="recruit.html" class="hover:text-white">Join Us</a></li>
+            <li><a href="#" class="hover:text-white">Corrections</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white">Support</h4>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="#" class="hover:text-white">Donate</a></li>
+            <li><a href="#" class="hover:text-white">Advertise</a></li>
+            <li><a href="#" class="hover:text-white">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white">Follow Us</h4>
+          <div class="mt-4 flex gap-4">
             <a href="#" aria-label="Twitter" class="hover:text-white">🐦</a>
             <a href="#" aria-label="Instagram" class="hover:text-white">📸</a>
           </div>
         </div>
       </div>
-      <p class="mt-8 border-t border-gray-800 pt-4 text-center text-sm">© 2025 The Argosy. All rights reserved.</p>
+      <div class="mt-12 border-t border-gray-800 pt-8 text-center">
+        <p class="text-sm">&copy; 2025 Herbart Kita Publishing. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
@@ -224,10 +210,9 @@
     // Persisted theme toggle
     const themeBtn = document.getElementById('themeToggle');
     const root = document.documentElement;
-    const stored = localStorage.getItem('theme');
-    if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       root.classList.add('dark');
-      themeBtn && themeBtn.setAttribute('aria-pressed', 'true');
+      themeBtn?.setAttribute('aria-pressed', 'true');
     }
     themeBtn?.addEventListener('click', () => {
       const isDark = root.classList.toggle('dark');
@@ -238,24 +223,21 @@
     // Mobile menu
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn?.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('hidden');
-      menuBtn.setAttribute('aria-expanded', String(!open));
-    });
+    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
     // Categories Dropdown
     const categoriesBtn = document.getElementById('categories-btn');
     const categoriesMenu = document.getElementById('categories-menu');
+    const dropdownSvg = categoriesBtn?.querySelector('svg');
     document.addEventListener('click', (e) => {
-      if (categoriesBtn.contains(e.target)) {
+      if (categoriesBtn?.contains(e.target)) {
         categoriesMenu.classList.toggle('hidden');
-      } else {
-        if (!categoriesMenu.classList.contains('hidden')) {
-          categoriesMenu.classList.add('hidden');
-        }
+        dropdownSvg?.classList.toggle('rotate-180');
+      } else if (!categoriesMenu?.classList.contains('hidden')) {
+        categoriesMenu.classList.add('hidden');
+        dropdownSvg?.classList.remove('rotate-180');
       }
     });
-
   </script>
 
   <!-- AUTO-LIST: Build homepage cards from /articles.json -->
@@ -263,98 +245,88 @@
     async function loadArticles(){
       try{
         const res = await fetch('/articles.json', {cache: 'no-store'});
-        if(!res.ok) {
-            console.error('Failed to load articles.json. Status:', res.status);
-            const featuredGrid = document.querySelector('#featured .grid');
-            if(featuredGrid) featuredGrid.innerHTML = '<p class="col-span-full text-center text-gray-500">Could not load articles. Please try again later.</p>';
-            return;
-        }
-        const articles = await res.json();
+        if(!res.ok) throw new Error(`Failed to load articles.json: ${res.status}`);
         
+        const articles = await res.json();
         const parsed = articles.map(a=>({
           ...a,
           date: a.date || a.published || a.created || '',
           section: (a.section||'').toLowerCase(),
-          url: a.url || a.path || `articles/${a.slug||''}.html`
+          url: a.url || a.path || `article.html?slug=${a.slug||''}`
         })).filter(a=>a.title && a.date).sort((a,b)=> new Date(b.date) - new Date(a.date));
 
         const fmtDate = (iso) => new Date(iso).toLocaleDateString(undefined, {year:'numeric', month:'short', day:'numeric'});
         const escape = (s) => String(s||'').replace(/[&<>]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
 
+        // Update Top Story
         const top = parsed[0]; 
         if (top) {
           document.getElementById('top-link').href = top.url;
           document.getElementById('top-title').textContent = top.title;
-          document.getElementById('top-date').textContent = `${top.section || 'Top Story'} • ${fmtDate(top.date)}`;
+          document.getElementById('top-category').textContent = top.section || 'Top Story';
+          document.getElementById('top-date').textContent = fmtDate(top.date);
           if (top.image) document.getElementById('top-image').src = top.image;
           document.getElementById('top-author').textContent = `By ${top.author || 'Staff Reporter'}`;
           document.getElementById('top-summary').textContent = top.summary || '';
         }
 
-        const featuredArticles = parsed.filter(a => a.title !== top.title).slice(0,3);
+        // FEATURED (next 3 articles)
+        const featuredArticles = parsed.slice(1, 4);
         const featuredGrid = document.querySelector('#featured .grid');
         if(featuredGrid){
           featuredGrid.innerHTML = featuredArticles.map(a=>`
-          <article class="card bg-white dark:bg-gray-900 rounded-xl shadow ring-1 ring-gray-200 dark:ring-gray-800 overflow-hidden flex flex-col">
-            <img class="h-48 w-full object-cover" src="${escape(a.image||'https://placehold.co/600x400/94a3b8/ffffff?text=Article')}" alt="${escape(a.image_alt||a.title)}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Image+Not+Found';">
-            <div class="p-6 flex flex-col flex-grow">
-              <p class="text-sm text-gray-500">${escape(a.section||'Article')} • ${fmtDate(a.date)}</p>
-              <h3 class="text-xl font-serif font-bold mt-1"><a href="${escape(a.url)}" class="hover:text-blue-600">${escape(a.title)}</a></h3>
-              <p class="mt-2 text-sm text-gray-700 dark:text-gray-300 flex-grow">${escape(a.summary||'')}</p>
-              <a href="${escape(a.url)}" class="text-sm text-blue-600 hover:underline mt-4 self-start">Read more →</a>
-            </div>
+          <article>
+            <img class="w-full h-48 object-cover" src="${escape(a.image||'https://placehold.co/600x400/e2e8f0/4a5568?text=Story')}" alt="${escape(a.image_alt||a.title)}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Image';">
+            <p class="mt-2 text-xs font-bold text-blue-600 uppercase">${escape(a.section)}</p>
+            <h3 class="text-xl font-bold mt-1"><a href="${escape(a.url)}" class="hover:text-blue-600">${escape(a.title)}</a></h3>
+            <p class="text-sm mt-2 text-gray-700 dark:text-gray-300">${escape(a.summary||'')}</p>
           </article>`).join('');
         }
 
-        function fillSection(sectionId, filter, limit=3){
+        // SECTION renderers
+        function fillSection(sectionId, filter, limit=2){
           const container = document.querySelector(`${sectionId} .space-y-6`);
           if(!container) return;
           const items = parsed.filter(filter).slice(0,limit);
           if(!items.length) {
-              const sectionEl = document.querySelector(sectionId);
-              if (sectionEl) sectionEl.classList.add('hidden');
+              document.querySelector(sectionId)?.classList.add('hidden');
               return;
           };
           container.innerHTML = items.map(a=>`
-            <article class="card bg-white dark:bg-gray-900 p-4 rounded-xl shadow ring-1 ring-gray-200 dark:ring-gray-800 flex items-start gap-4">
-              <img src="${escape(a.image||'https://placehold.co/150x100/94a3b8/ffffff?text=Img')}" class="w-24 h-24 object-cover rounded shrink-0" alt="${escape(a.image_alt||a.title)}" onerror="this.onerror=null;this.src='https://placehold.co/150x100/cccccc/ffffff?text=Image';">
-              <div>
-                <h3 class="font-serif font-bold text-lg"><a href="${escape(a.url)}" class="hover:text-blue-600">${escape(a.title)}</a></h3>
-                <p class="text-sm text-gray-700 dark:text-gray-300 mt-1">${escape(a.summary||'' || 'No summary available.')}</p>
-                <p class="text-xs text-gray-500 mt-2">${escape(a.author||'Staff Reporter')} • ${fmtDate(a.date)}</p>
+            <article class="flex items-start gap-4">
+              <div class="flex-grow">
+                <h3 class="font-bold text-lg"><a href="${escape(a.url)}" class="hover:text-blue-600">${escape(a.title)}</a></h3>
+                <p class="text-sm text-gray-500 mt-1">${escape(a.author||'Staff')} • ${fmtDate(a.date)}</p>
               </div>
+              <img src="${escape(a.image||'https://placehold.co/150x100/e2e8f0/4a5568?text=Img')}" class="w-24 h-20 object-cover shrink-0" alt="${escape(a.image_alt||a.title)}" onerror="this.onerror=null;this.src='https://placehold.co/150x100/cccccc/ffffff?text=Image';">
             </article>`).join('');
         }
 
         fillSection('#politics', a=> a.section.includes('politic'));
-        fillSection('#public-health', a=> a.section.includes('health'));
+        fillSection('#health', a=> a.section.includes('health'));
         fillSection('#business', a=> a.section.includes('business'));
-        fillSection('#science-tech', a=> a.section.includes('science') || a.section.includes('technolog'));
-        fillSection('#environment', a=> a.section.includes('environment') || a.section.includes('sustain'));
-        fillSection('#education', a=> a.section.includes('education'));
-        fillSection('#college-admissions', a=> a.section.includes('admission'));
-        fillSection('#sports', a=> a.section.includes('sport'));
 
-        function fillSimpleList(sectionId, filter, limit=5){
+        // Sidebar lists
+        function fillSimpleList(sectionId, filter, limit=4){
           const ul = document.querySelector(`${sectionId} ul`);
           if(!ul) return;
           const items = parsed.filter(filter).slice(0,limit);
           if(!items.length) {
-            const sectionEl = ul.parentElement;
-            if (sectionEl) sectionEl.classList.add('hidden');
+            ul.closest('section')?.classList.add('hidden');
             return;
           };
           ul.innerHTML = items.map((a,i)=>`
             <li ${i? 'class="pt-4 border-t border-gray-200 dark:border-gray-800"':''}>
-              <a href="${escape(a.url)}" class="font-semibold hover:text-blue-600">${escape(a.title)}</a>
+              <a href="${escape(a.url)}" class="font-bold hover:text-blue-600">${escape(a.title)}</a>
               <p class="text-xs text-gray-500 mt-1">${escape(a.author||'Staff')} • ${fmtDate(a.date)}</p>
             </li>`).join('');
         }
         fillSimpleList('#opinion', a=> a.section.includes('opinion'));
-        fillSimpleList('#culture', a=> a.section.includes('culture') || a.section.includes('religion'));
+        fillSimpleList('#culture', a=> a.section.includes('culture'));
 
       }catch(e){
         console.error('Auto-list failed', e);
+        document.querySelector('#featured .grid').innerHTML = '<p class="col-span-full text-center text-gray-500">Could not load articles. Please try again later.</p>';
       }
     }
     document.addEventListener('DOMContentLoaded', loadArticles);
