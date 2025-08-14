@@ -1,8 +1,17 @@
 {
   "name": "the-argosy",
   "version": "1.0.0",
-  "private": true,
+  "description": "A student-run newspaper.",
+  "main": "index.js",
   "scripts": {
-    "build": "node build.js"
+    "build": "npx @11ty/eleventy",
+    "start": "npx @11ty/eleventy --serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@tailwindcss/typography": "^0.5.10"
   }
 }
