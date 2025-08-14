@@ -14,10 +14,6 @@ summary: In May 2023, leaders of the world’s most advanced democracies gathere
 ---
 # G7 Summit in Hiroshima: A United Front Against Authoritarianism?
 
-*In May 2023, leaders of the world’s most advanced democracies gathered in Hiroshima, pledging unity on security, economics, and values — but also revealing the limits of consensus in confronting authoritarian powers.*
-
----
-
 ## Introduction
 
 From May 19 to 21, 2023, the leaders of the Group of Seven (G7) convened in Hiroshima, Japan — a city whose history as the first target of an atomic bomb underscored the summit’s themes of peace, security, and the risks of global conflict. Hosted by Japanese Prime Minister Fumio Kishida, the meeting brought together leaders from the United States, Canada, the United Kingdom, France, Germany, Italy, and the European Union.
