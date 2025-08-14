@@ -31,7 +31,12 @@
     @media (min-width: 768px){ .site-title { font-size: 2.25rem; } }
     .site-tagline { font-family: 'Lato', sans-serif; font-size: .8rem; letter-spacing: .15em; text-transform: uppercase; color: #6b7280; }
     .dark .site-tagline { color: #9ca3af; }
-  </style>
+  
+  /* Hide horizontal scrollbar but allow scroll */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+</style>
 
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
@@ -51,7 +56,7 @@
           <span class="site-title">The Argosy</span>
         </a>
 
-        <nav class="hidden md:flex items-center gap-4 text-sm overflow-x-auto whitespace-nowrap" aria-label="Primary">
+        <nav class="hidden md:flex no-scrollbar items-center gap-4 text-sm overflow-x-auto whitespace-nowrap pb-1" aria-label="Primary">
   <a href="#top-stories" class="hover:text-blue-600">Top</a>
   <a href="#politics" class="hover:text-blue-600">Politics</a>
   <a href="#public-health" class="hover:text-blue-600">Health</a>
