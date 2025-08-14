@@ -1,4 +1,9 @@
-
+# Netlify Build Configuration
 [build]
-  command = "node build.js"
-  publish = "."
+  # This is the command to build your Eleventy site.
+  # It runs the "build" script from your package.json file.
+  command = "npm run build"
+
+  # This is the folder where Eleventy builds the final website.
+  # Netlify will deploy the contents of this folder.
+  publish = "_site"
