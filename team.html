@@ -66,15 +66,40 @@
           <a href="about.html" class="hover:text-blue-600">About</a>
           <a href="recruit.html" class="hover:text-blue-600">Join</a>
         </nav>
-        <div class="hidden md:flex items-center gap-2">
-          <button id="themeToggle" class="ml-2 px-2.5 py-2 text-sm border border-gray-300 dark:border-gray-700" aria-pressed="false" aria-label="Toggle dark mode">🌙</button>
+        <div class="hidden md:flex items-center gap-4">
+          <a href="https://theargosy.org/admin" target="_blank" rel="noopener noreferrer" class="px-3 py-2 text-sm font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 border border-gray-300 dark:border-gray-700">Crew Login</a>
+          <button id="themeToggle" class="px-2.5 py-2 text-sm border border-gray-300 dark:border-gray-700" aria-pressed="false" aria-label="Toggle dark mode">🌙</button>
         </div>
         <button id="menuBtn" class="md:hidden p-2" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
           <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
     </div>
-    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 dark:border-gray-800"></div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 dark:border-gray-800" role="dialog" aria-label="Mobile menu">
+      <div class="px-4 py-4 space-y-4">
+        <div class="space-y-2 text-base font-semibold">
+          <a class="block px-3 py-2" href="about.html">About</a>
+          <a class="block px-3 py-2 text-blue-600 bg-gray-100 dark:bg-gray-800" href="team.html" aria-current="page">Team</a>
+          <a class="block px-3 py-2" href="recruit.html">Join</a>
+          <a href="https://theargosy.org/admin" target="_blank" rel="noopener noreferrer" class="block px-3 py-2 border-t border-gray-200 dark:border-gray-800 mt-2 pt-4">Crew Login</a>
+        </div>
+        <div class="border-t border-gray-200 dark:border-gray-800 pt-4">
+          <h3 class="px-3 text-sm font-semibold text-gray-500 uppercase tracking-wider">Categories</h3>
+          <div class="mt-2 grid grid-cols-2 gap-x-4 gap-y-2 text-base font-semibold">
+            <a class="block px-3 py-2" href="category.html?c=politics">Politics</a>
+            <a class="block px-3 py-2" href="category.html?c=health">Health</a>
+            <a class="block px-3 py-2" href="category.html?c=business">Business</a>
+            <a class="block px-3 py-2" href="category.html?c=science">Science</a>
+            <a class="block px-3 py-2" href="category.html?c=environment">Environment</a>
+            <a class="block px-3 py-2" href="category.html?c=education">Education</a>
+            <a class="block px-3 py-2" href="category.html?c=admissions">Admissions</a>
+            <a class="block px-3 py-2" href="category.html?c=sports">Sports</a>
+            <a class="block px-3 py-2" href="category.html?c=culture">Culture</a>
+            <a class="block px-3 py-2" href="category.html?c=opinion">Opinion</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main id="content" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
