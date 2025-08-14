@@ -13,34 +13,37 @@
     .muted{color:#9ca3af;font-size:14px;line-height:1.5}
     code{background:#0b1220;padding:2px 6px;border-radius:6px}
   </style>
-  <!-- Netlify Identity (auth) -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <!-- Decap CMS (UI) -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>window.CMS_MANUAL_INIT = true;</script>
 </head>
 <body>
   <div class="wrap">
     <div class="card">
       <h1>Loading The Argosy CMS…</h1>
-      <p class="muted">If you see a login screen, use your Netlify Identity email & password. <br>
-      If you see an error like <em>“Config not found”</em> or <em>“Git Gateway not enabled”</em>, follow the checklist below.</p>
+      <p class="muted">If you see a login screen, use your Netlify Identity email & password.</p>
       <ol class="muted">
         <li>Confirm <code>/admin/config.yml</code> exists in your deployed site.</li>
-        <li>Netlify &rarr; <strong>Identity</strong> is enabled, and <strong>Git Gateway</strong> is on.</li>
-        <li>If you just enabled Identity, refresh this page.</li>
+        <li>Netlify → <strong>Identity</strong> is enabled and <strong>Git Gateway</strong> is on.</li>
+        <li>If you just enabled Identity, refresh this page after logging in.</li>
       </ol>
     </div>
   </div>
 
+  <!-- Load scripts AFTER the body exists -->
+  <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script defer src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
-    // Auto-reload after login so CMS initializes with your token.
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', user => {
-        if (!user) {
-          window.netlifyIdentity.on('login', () => { document.location.reload(); });
-        }
-      });
-    }
+    document.addEventListener('DOMContentLoaded', function(){
+      if (window.CMS && window.CMS.init) {
+        window.CMS.init();
+      }
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', function(user){
+          if (!user) {
+            window.netlifyIdentity.on('login', function(){ location.reload(); });
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>
