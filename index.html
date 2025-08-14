@@ -32,11 +32,10 @@
     .site-tagline { font-family: 'Lato', sans-serif; font-size: .8rem; letter-spacing: .15em; text-transform: uppercase; color: #6b7280; }
     .dark .site-tagline { color: #9ca3af; }
   
-  /* Hide horizontal scrollbar but allow scroll */
-  .no-scrollbar::-webkit-scrollbar { display: none; }
-  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-</style>
+    /* Hide horizontal scrollbar but allow scroll */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
 
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
@@ -51,27 +50,39 @@
   <header class="bg-white/90 dark:bg-gray-900/90 backdrop-blur sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between py-3">
-        <a href="index.html" class="flex items-center gap-3 text-2xl font-serif font-bold tracking-tight">
-          <img src="/assets/argosy-logo.png" alt="The Argosy logo" class="h-8 md:h-9 shrink-0" />
+        <a href="index.html" class="flex items-center gap-3 text-2xl font-serif font-bold tracking-tight shrink-0">
+          <img src="/assets/argosy-logo.png" alt="The Argosy logo" class="h-8 md:h-9" />
           <span class="site-title">The Argosy</span>
         </a>
 
-        <nav class="hidden md:flex no-scrollbar items-center gap-4 text-sm overflow-x-auto whitespace-nowrap pb-1" aria-label="Primary">
-  <a href="#top-stories" class="hover:text-blue-600">Top</a>
-  <a href="#politics" class="hover:text-blue-600">Politics</a>
-  <a href="#public-health" class="hover:text-blue-600">Health</a>
-  <a href="#business" class="hover:text-blue-600">Business</a>
-  <a href="#science-tech" class="hover:text-blue-600">Science</a>
-  <a href="#environment" class="hover:text-blue-600">Environment</a>
-  <a href="#education" class="hover:text-blue-600">Education</a>
-  <a href="#college-admissions" class="hover:text-blue-600">Admissions</a>
-  <a href="#sports" class="hover:text-blue-600">Sports</a>
-  <a href="#culture" class="hover:text-blue-600">Culture</a>
-  <a href="#opinion" class="hover:text-blue-600">Opinion</a>
-  <a href="team.html" class="hover:text-blue-600">Team</a>
-  <a href="about.html" class="hover:text-blue-600">About</a>
-  <a href="recruit.html" class="hover:text-blue-600">Join</a>
-</nav>
+        <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Primary">
+          <!-- Categories Dropdown -->
+          <div class="relative" id="categories-dropdown">
+            <button id="categories-btn" class="flex items-center gap-1 hover:text-blue-600">
+              <span>Categories</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+            <div id="categories-menu" class="hidden absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-20">
+              <div class="py-1">
+                <a href="#politics" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Politics</a>
+                <a href="#public-health" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Health</a>
+                <a href="#business" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Business</a>
+                <a href="#science-tech" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Science</a>
+                <a href="#environment" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Environment</a>
+                <a href="#education" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Education</a>
+                <a href="#college-admissions" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Admissions</a>
+                <a href="#sports" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Sports</a>
+                <a href="#culture" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Culture</a>
+                <a href="#opinion" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Opinion</a>
+              </div>
+            </div>
+          </div>
+          <a href="team.html" class="hover:text-blue-600">Team</a>
+          <a href="about.html" class="hover:text-blue-600">About</a>
+          <a href="recruit.html" class="hover:text-blue-600">Join</a>
+        </nav>
 
         <div class="hidden md:flex items-center gap-2">
           <label for="search" class="sr-only">Search</label>
@@ -88,24 +99,28 @@
 
     <!-- Mobile menu -->
     <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900" role="dialog" aria-label="Mobile menu">
-      <div class="px-4 py-3 space-y-2">
+      <div class="px-4 py-3 space-y-4">
         <input id="mSearch" type="search" placeholder="Search articles…" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-900" />
-        <div class="grid grid-cols-2 gap-2 text-sm">
-  <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#top-stories">Top</a>
-  <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#politics">Politics</a>
-  <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#public-health">Health</a>
-  <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#business">Business</a>
-  <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#science-tech">Science</a>
-  <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#environment">Environment</a>
-  <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#education">Education</a>
-  <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#college-admissions">Admissions</a>
-  <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#sports">Sports</a>
-  <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#culture">Culture</a>
-  <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#opinion">Opinion</a>
-  <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="team.html">Team</a>
-  <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="about.html">About</a>
-  <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="recruit.html">Join</a>
-</div>
+        <div class="space-y-2 text-sm">
+          <a class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="about.html">About</a>
+          <a class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="team.html">Team</a>
+          <a class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="recruit.html">Join</a>
+        </div>
+        <div>
+          <h3 class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Categories</h3>
+          <div class="mt-2 grid grid-cols-2 gap-2 text-sm">
+            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#politics">Politics</a>
+            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#public-health">Health</a>
+            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#business">Business</a>
+            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#science-tech">Science</a>
+            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#environment">Environment</a>
+            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#education">Education</a>
+            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#college-admissions">Admissions</a>
+            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#sports">Sports</a>
+            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#culture">Culture</a>
+            <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="#opinion">Opinion</a>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -117,8 +132,8 @@
       <article class="bg-white dark:bg-gray-900 rounded-xl shadow ring-1 ring-gray-200 dark:ring-gray-800 overflow-hidden">
         <div class="md:flex">
           <img id="top-image" class="md:w-1/2 h-64 md:h-auto object-cover" src="https://placehold.co/800x600/94a3b8/ffffff?text=Top+Story" alt="Top story image" onerror="this.onerror=null;this.src='https://placehold.co/800x600/cccccc/ffffff?text=Image+Not+Found';">
-          <div class="p-6 md:w-1/2">
-            <p id="top-date" class="text-sm text-gray-500">Campus News • Aug 4, 2025</p>
+          <div class="p-6 md:p-8 md:w-1/2 flex flex-col justify-center">
+            <p id="top-date" class="text-sm text-gray-500">Campus News • Aug 15, 2025</p>
             <h3 id="top-title" class="mt-2 text-3xl font-serif font-bold leading-tight">University Announces Major Campus Expansion Project</h3>
             <p id="top-summary" class="mt-3 text-gray-700 dark:text-gray-300">The initiative adds state-of-the-art facilities for science and arts, breaking ground next spring — the largest project in university history.</p>
             <div class="mt-4 flex items-center gap-4">
@@ -130,98 +145,26 @@
       </article>
     </section>
 
-    <!-- Filters -->
-    <section class="mb-6">
-      <div class="flex flex-wrap items-center gap-2 text-sm">
-        <button class="filter-chip px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700" data-tag="all" aria-pressed="true">All</button>
-        <button class="filter-chip px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700" data-tag="politics">Politics & Diplomacy</button>
-        <button class="filter-chip px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700" data-tag="public-health">Public Health</button>
-        <button class="filter-chip px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700" data-tag="business">Business</button>
-        <button class="filter-chip px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700" data-tag="science-tech">Science & Technology</button>
-        <button class="filter-chip px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700" data-tag="environment">Environment & Sustainability</button>
-        <button class="filter-chip px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700" data-tag="education">Education</button>
-        <button class="filter-chip px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700" data-tag="college-admissions">College Admissions</button>
-        <button class="filter-chip px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700" data-tag="sports">Sports</button>
-        <button class="filter-chip px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700" data-tag="culture">Culture & Religion</button>
-        <button class="filter-chip px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-700" data-tag="opinion">Opinion</button>
-      </div>
-    </section>
-
-    <!-- Featured grid with data-attrs for filtering -->
+    <!-- Featured grid -->
     <section class="mb-12" id="featured">
+      <h2 class="text-3xl font-serif font-bold mb-6 pb-2 border-b-2 border-blue-600">Featured Stories</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <article class="card bg-white dark:bg-gray-900 rounded-xl shadow ring-1 ring-gray-200 dark:ring-gray-800 overflow-hidden" data-tags="sports" data-title="Eagles Secure Victory in Championship Thriller">
-          <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/b794f4/ffffff?text=Article" alt="Soccer team celebrates" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Image+Not+Found';">
-          <div class="p-6">
-            <p class="text-sm text-gray-500">Sports • Aug 3, 2025</p>
-            <h3 class="text-xl font-serif font-bold">Eagles Secure Victory in Championship Thriller</h3>
-            <p class="mt-2 text-sm text-gray-700 dark:text-gray-300">A last-minute goal clinched the title in a nail-biting final.</p>
-          </div>
-        </article>
-
-        <article class="card bg-white dark:bg-gray-900 rounded-xl shadow ring-1 ring-gray-200 dark:ring-gray-800 overflow-hidden" data-tags="local" data-title="New Downtown Market Opens to Public">
-          <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/63b3ed/ffffff?text=Article" alt="New downtown market opening" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Image+Not+Found';">
-          <div class="p-6">
-            <p class="text-sm text-gray-500">Local News • Aug 3, 2025</p>
-            <h3 class="text-xl font-serif font-bold">New Downtown Market Opens to Public</h3>
-            <p class="mt-2 text-sm text-gray-700 dark:text-gray-300">Vendors and artisans celebrate a vibrant new community space.</p>
-          </div>
-        </article>
-
-        <article class="card bg-white dark:bg-gray-900 rounded-xl shadow ring-1 ring-gray-200 dark:ring-gray-800 overflow-hidden" data-tags="opinion" data-title="The Case for a Four-Day School Week">
-          <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/f6ad55/ffffff?text=Article" alt="Opinion column concept" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Image+Not+Found';">
-          <div class="p-6">
-            <p class="text-sm text-gray-500">Opinion • Aug 2, 2025</p>
-            <h3 class="text-xl font-serif font-bold">The Case for a Four-Day School Week</h3>
-            <p class="mt-2 text-sm text-gray-700 dark:text-gray-300">A student argues shorter weeks improve well-being and academics.</p>
-          </div>
-        </article>
+        <!-- Articles will be loaded here by script -->
       </div>
     </section>
-
+    
+    <!-- Main content grid -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      <!-- Main column -->
+      <!-- Main column for sections -->
       <div class="lg:col-span-2 space-y-12">
-        <!-- Sections -->
-        <section id="politics">
-          <h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Politics & Diplomacy</h2>
-          <div class="space-y-6"></div>
-        </section>
-
-        <section id="public-health">
-          <h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Public Health</h2>
-          <div class="space-y-6"></div>
-        </section>
-
-        <section id="business">
-          <h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Business</h2>
-          <div class="space-y-6"></div>
-        </section>
-
-        <section id="science-tech">
-          <h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Science & Technology</h2>
-          <div class="space-y-6"></div>
-        </section>
-
-        <section id="environment">
-          <h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Environment & Sustainability</h2>
-          <div class="space-y-6"></div>
-        </section>
-
-        <section id="education">
-          <h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Education</h2>
-          <div class="space-y-6"></div>
-        </section>
-
-        <section id="college-admissions">
-          <h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">College Admissions</h2>
-          <div class="space-y-6"></div>
-        </section>
-
-        <section id="sports">
-          <h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Sports</h2>
-          <div class="space-y-6"></div>
-        </section>
+        <section id="politics" class="scroll-mt-24"><h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Politics & Diplomacy</h2><div class="space-y-6"></div></section>
+        <section id="public-health" class="scroll-mt-24"><h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Public Health</h2><div class="space-y-6"></div></section>
+        <section id="business" class="scroll-mt-24"><h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Business</h2><div class="space-y-6"></div></section>
+        <section id="science-tech" class="scroll-mt-24"><h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Science & Technology</h2><div class="space-y-6"></div></section>
+        <section id="environment" class="scroll-mt-24"><h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Environment & Sustainability</h2><div class="space-y-6"></div></section>
+        <section id="education" class="scroll-mt-24"><h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Education</h2><div class="space-y-6"></div></section>
+        <section id="college-admissions" class="scroll-mt-24"><h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">College Admissions</h2><div class="space-y-6"></div></section>
+        <section id="sports" class="scroll-mt-24"><h2 class="text-2xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Sports</h2><div class="space-y-6"></div></section>
       </div>
 
       <!-- Sidebar -->
@@ -230,7 +173,6 @@
           <h2 class="text-xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Opinion</h2>
           <ul class="space-y-4 text-sm"></ul>
         </section>
-
         <section id="culture" class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow ring-1 ring-gray-200 dark:ring-gray-800 scroll-mt-24">
           <h2 class="text-xl font-serif font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-800">Culture & Religion</h2>
           <ul class="space-y-4 text-sm"></ul>
@@ -238,36 +180,16 @@
       </aside>
     </div>
 
-    <!-- Team -->
-    <section id="our-team" class="mt-12">
-      <h2 class="text-3xl font-serif font-bold mb-6 pb-2 border-b-2 border-blue-600">Meet Our Journalists</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <div class="bg-white dark:bg-gray-900 rounded-xl shadow ring-1 ring-gray-200 dark:ring-gray-800 p-6 text-center">
-          <img class="w-24 h-24 mx-auto rounded-full mb-4" src="https://placehold.co/200x200/a0aec0/ffffff?text=Photo" alt="Jane Doe portrait" onerror="this.onerror=null;this.src='https://placehold.co/200x200/cccccc/ffffff?text=Image';">
-          <h3 class="text-lg font-serif font-bold">Jane Doe</h3>
-          <p class="text-sm text-blue-600 font-semibold">Editor-in-Chief</p>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">“Dedicated to accurate and timely campus news.”</p>
+    <!-- Call to Action Section -->
+    <section class="mt-16 text-center bg-gray-100 dark:bg-gray-900 p-8 rounded-lg">
+        <h2 class="text-3xl font-serif font-bold">Explore More</h2>
+        <p class="mt-2 text-gray-600 dark:text-gray-300">Learn about our mission or meet the students behind the stories.</p>
+        <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+             <a href="about.html" class="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">About The Argosy</a>
+            <a href="team.html" class="inline-block bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600 transition-colors">Meet the Team</a>
         </div>
-        <div class="bg-white dark:bg-gray-900 rounded-xl shadow ring-1 ring-gray-200 dark:ring-gray-800 p-6 text-center">
-          <img class="w-24 h-24 mx-auto rounded-full mb-4" src="https://placehold.co/200x200/b794f4/ffffff?text=Photo" alt="John Smith portrait" onerror="this.onerror=null;this.src='https://placehold.co/200x200/cccccc/ffffff?text=Image';">
-          <h3 class="text-lg font-serif font-bold">John Smith</h3>
-          <p class="text-sm text-blue-600 font-semibold">Sports Editor</p>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">“Every goal, every story from the field.”</p>
-        </div>
-        <div class="bg-white dark:bg-gray-900 rounded-xl shadow ring-1 ring-gray-200 dark:ring-gray-800 p-6 text-center">
-          <img class="w-24 h-24 mx-auto rounded-full mb-4" src="https://placehold.co/200x200/63b3ed/ffffff?text=Photo" alt="Emily White portrait" onerror="this.onerror=null;this.src='https://placehold.co/200x200/cccccc/ffffff?text=Image';">
-          <h3 class="text-lg font-serif font-bold">Emily White</h3>
-          <p class="text-sm text-blue-600 font-semibold">Lead Reporter</p>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">“Exploring stories that shape our community.”</p>
-        </div>
-        <div class="bg-white dark:bg-gray-900 rounded-xl shadow ring-1 ring-gray-200 dark:ring-gray-800 p-6 text-center">
-          <img class="w-24 h-24 mx-auto rounded-full mb-4" src="https://placehold.co/200x200/f6ad55/ffffff?text=Photo" alt="Michael Chen portrait" onerror="this.onerror=null;this.src='https://placehold.co/200x200/cccccc/ffffff?text=Image';">
-          <h3 class="text-lg font-serif font-bold">Michael Chen</h3>
-          <p class="text-sm text-blue-600 font-semibold">Opinion Columnist</p>
-          <p class="text-xs text-gray-600 dark:text-gray-400 mt-2">“Perspectives that spark conversation.”</p>
-        </div>
-      </div>
     </section>
+
   </main>
 
   <footer class="bg-gray-900 text-gray-300 mt-12">
@@ -284,22 +206,6 @@
             <li><a href="team.html" class="hover:text-white">Our Team</a></li>
             <li><a href="recruit.html" class="hover:text-white">Join Us</a></li>
             <li><a href="corrections.html" class="hover:text-white">Corrections & Standards</a></li>
-            <li><a href="browse.html" class="hover:text-white">Browse by Category</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold text-white">Categories</h4>
-          <ul class="mt-2 space-y-1">
-            <li><a href="#politics" class="hover:text-white">Politics & Diplomacy</a></li>
-            <li><a href="#public-health" class="hover:text-white">Public Health</a></li>
-            <li><a href="#business" class="hover:text-white">Business</a></li>
-            <li><a href="#science-tech" class="hover:text-white">Science & Technology</a></li>
-            <li><a href="#environment" class="hover:text-white">Environment & Sustainability</a></li>
-            <li><a href="#education" class="hover:text-white">Education</a></li>
-            <li><a href="#college-admissions" class="hover:text-white">College Admissions</a></li>
-            <li><a href="#sports" class="hover:text-white">Sports</a></li>
-            <li><a href="#culture" class="hover:text-white">Culture & Religion</a></li>
-            <li><a href="#opinion" class="hover:text-white">Opinion</a></li>
           </ul>
         </div>
         <div>
@@ -337,43 +243,34 @@
       menuBtn.setAttribute('aria-expanded', String(!open));
     });
 
-    // Simple client-side search + tag filters
-    const q = document.getElementById('search');
-    const qBtn = document.getElementById('searchBtn');
-    const mq = document.getElementById('mSearch');
-    const cards = Array.from(document.querySelectorAll('.card'));
-    function applyFilters() {
-      const query = (q?.value || mq?.value || '').trim().toLowerCase();
-      const activeTag = document.querySelector('.filter-chip[aria-pressed="true"]').dataset.tag;
-      cards.forEach(card => {
-        const title = card.dataset.title.toLowerCase();
-        const tags = card.dataset.tags.toLowerCase();
-        const matchesQuery = !query || title.includes(query);
-        const matchesTag = activeTag === 'all' || tags.includes(activeTag);
-        card.classList.toggle('hidden', !(matchesQuery && matchesTag));
-      });
-    }
-    qBtn?.addEventListener('click', applyFilters);
-    q?.addEventListener('keydown', e => { if (e.key === 'Enter') applyFilters(); });
-    mq?.addEventListener('keydown', e => { if (e.key === 'Enter') applyFilters(); });
+    // Categories Dropdown
+    const categoriesBtn = document.getElementById('categories-btn');
+    const categoriesMenu = document.getElementById('categories-menu');
+    document.addEventListener('click', (e) => {
+      if (categoriesBtn.contains(e.target)) {
+        categoriesMenu.classList.toggle('hidden');
+      } else {
+        if (!categoriesMenu.classList.contains('hidden')) {
+          categoriesMenu.classList.add('hidden');
+        }
+      }
+    });
 
-    // Tag filter chips
-    const chips = document.querySelectorAll('.filter-chip');
-    chips.forEach(chip => chip.addEventListener('click', () => {
-      chips.forEach(c => c.setAttribute('aria-pressed', 'false'));
-      chip.setAttribute('aria-pressed', 'true');
-      applyFilters();
-    }));
   </script>
 
-  <!-- AUTO-LIST: Build homepage cards from /articles.json generated at build time -->
+  <!-- AUTO-LIST: Build homepage cards from /articles.json -->
   <script type="module">
     async function loadArticles(){
       try{
-        const res = await fetch('/articles.json',{cache:'no-store'});
-        if(!res.ok) return;
+        const res = await fetch('/articles.json', {cache: 'no-store'});
+        if(!res.ok) {
+            console.error('Failed to load articles.json. Status:', res.status);
+            const featuredGrid = document.querySelector('#featured .grid');
+            if(featuredGrid) featuredGrid.innerHTML = '<p class="col-span-full text-center text-gray-500">Could not load articles. Please try again later.</p>';
+            return;
+        }
         const articles = await res.json();
-        // normalize + sort newest first
+        
         const parsed = articles.map(a=>({
           ...a,
           date: a.date || a.published || a.created || '',
@@ -381,87 +278,86 @@
           url: a.url || a.path || `articles/${a.slug||''}.html`
         })).filter(a=>a.title && a.date).sort((a,b)=> new Date(b.date) - new Date(a.date));
 
-        // helper creators
-        const fmtDate = (iso)=>{
-          const d=new Date(iso);
-          return d.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
-        };
-        const escape = (s)=>String(s||'').replace(/[&<>]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+        const fmtDate = (iso) => new Date(iso).toLocaleDateString(undefined, {year:'numeric', month:'short', day:'numeric'});
+        const escape = (s) => String(s||'').replace(/[&<>]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
 
-        // FEATURED (top 3 latest)
-        const featured = document.querySelector('#featured .grid');
-        if(featured){
-          featured.innerHTML = parsed.slice(0,3).map(a=>`
-          <article class="card bg-white dark:bg-gray-900 rounded-xl shadow ring-1 ring-gray-200 dark:ring-gray-800 overflow-hidden" data-tags="${escape(((a.tags||[]).join(',') + ',' + (a.section||'')).toLowerCase())}" data-title="${escape(a.title)}">
+        const top = parsed[0]; 
+        if (top) {
+          document.getElementById('top-link').href = top.url;
+          document.getElementById('top-title').textContent = top.title;
+          document.getElementById('top-date').textContent = `${top.section || 'Top Story'} • ${fmtDate(top.date)}`;
+          if (top.image) document.getElementById('top-image').src = top.image;
+          document.getElementById('top-author').textContent = `By ${top.author || 'Staff Reporter'}`;
+          document.getElementById('top-summary').textContent = top.summary || '';
+        }
+
+        const featuredArticles = parsed.filter(a => a.title !== top.title).slice(0,3);
+        const featuredGrid = document.querySelector('#featured .grid');
+        if(featuredGrid){
+          featuredGrid.innerHTML = featuredArticles.map(a=>`
+          <article class="card bg-white dark:bg-gray-900 rounded-xl shadow ring-1 ring-gray-200 dark:ring-gray-800 overflow-hidden flex flex-col">
             <img class="h-48 w-full object-cover" src="${escape(a.image||'https://placehold.co/600x400/94a3b8/ffffff?text=Article')}" alt="${escape(a.image_alt||a.title)}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Image+Not+Found';">
-            <div class="p-6">
+            <div class="p-6 flex flex-col flex-grow">
               <p class="text-sm text-gray-500">${escape(a.section||'Article')} • ${fmtDate(a.date)}</p>
-              <h3 class="text-xl font-serif font-bold">${escape(a.title)}</h3>
-              <p class="mt-2 text-sm text-gray-700 dark:text-gray-300">${escape(a.summary||'')}</p>
+              <h3 class="text-xl font-serif font-bold mt-1"><a href="${escape(a.url)}" class="hover:text-blue-600">${escape(a.title)}</a></h3>
+              <p class="mt-2 text-sm text-gray-700 dark:text-gray-300 flex-grow">${escape(a.summary||'')}</p>
+              <a href="${escape(a.url)}" class="text-sm text-blue-600 hover:underline mt-4 self-start">Read more →</a>
             </div>
           </article>`).join('');
         }
 
-        // SECTION renderers
-        function fillSection(sectionId, filter, limit=5){
-          const root = document.querySelector(sectionId);
-          if(!root) return;
-          let container = root.querySelector('.space-y-6') || root.querySelector('.list') || root;
+        function fillSection(sectionId, filter, limit=3){
+          const container = document.querySelector(`${sectionId} .space-y-6`);
+          if(!container) return;
           const items = parsed.filter(filter).slice(0,limit);
-          if(!items.length) return;
+          if(!items.length) {
+              const sectionEl = document.querySelector(sectionId);
+              if (sectionEl) sectionEl.classList.add('hidden');
+              return;
+          };
           container.innerHTML = items.map(a=>`
-            <article class="card bg-white dark:bg-gray-900 p-4 rounded-xl shadow ring-1 ring-gray-200 dark:ring-gray-800 flex items-start gap-4" data-tags="${escape(((a.tags||[]).join(',') + ',' + (a.section||'')).toLowerCase())}" data-title="${escape(a.title)}">
-              <img src="${escape(a.image||'https://placehold.co/150x100/94a3b8/ffffff?text=Img')}" class="w-24 h-24 object-cover rounded" alt="${escape(a.image_alt||a.title)}" onerror="this.onerror=null;this.src='https://placehold.co/150x100/cccccc/ffffff?text=Image';">
+            <article class="card bg-white dark:bg-gray-900 p-4 rounded-xl shadow ring-1 ring-gray-200 dark:ring-gray-800 flex items-start gap-4">
+              <img src="${escape(a.image||'https://placehold.co/150x100/94a3b8/ffffff?text=Img')}" class="w-24 h-24 object-cover rounded shrink-0" alt="${escape(a.image_alt||a.title)}" onerror="this.onerror=null;this.src='https://placehold.co/150x100/cccccc/ffffff?text=Image';">
               <div>
                 <h3 class="font-serif font-bold text-lg"><a href="${escape(a.url)}" class="hover:text-blue-600">${escape(a.title)}</a></h3>
-                <p class="text-sm text-gray-700 dark:text-gray-300 mt-1">${escape(a.summary||'')}</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300 mt-1">${escape(a.summary||'' || 'No summary available.')}</p>
                 <p class="text-xs text-gray-500 mt-2">${escape(a.author||'Staff Reporter')} • ${fmtDate(a.date)}</p>
               </div>
-            </article>
-          `).join('');
+            </article>`).join('');
         }
 
-        fillSection('#politics', a=> (a.section||'').includes('politic'));
-        fillSection('#public-health', a=> (a.section||'').includes('health'));
-        fillSection('#business', a=> (a.section||'').includes('business'));
-        fillSection('#science-tech', a=> (a.section||'').includes('science') || (a.section||'').includes('technolog'));
-        fillSection('#environment', a=> (a.section||'').includes('environment') || (a.section||'').includes('sustain'));
-        fillSection('#education', a=> (a.section||'').includes('education'));
-        fillSection('#college-admissions', a=> (a.section||'').includes('admission'));
-        fillSection('#sports', a=> (a.section||'').includes('sports'));
+        fillSection('#politics', a=> a.section.includes('politic'));
+        fillSection('#public-health', a=> a.section.includes('health'));
+        fillSection('#business', a=> a.section.includes('business'));
+        fillSection('#science-tech', a=> a.section.includes('science') || a.section.includes('technolog'));
+        fillSection('#environment', a=> a.section.includes('environment') || a.section.includes('sustain'));
+        fillSection('#education', a=> a.section.includes('education'));
+        fillSection('#college-admissions', a=> a.section.includes('admission'));
+        fillSection('#sports', a=> a.section.includes('sport'));
 
-        // Sidebar lists for Opinion and Culture
         function fillSimpleList(sectionId, filter, limit=5){
-          const root = document.querySelector(sectionId);
-          if(!root) return;
-          const ul = root.querySelector('ul') || root;
+          const ul = document.querySelector(`${sectionId} ul`);
+          if(!ul) return;
           const items = parsed.filter(filter).slice(0,limit);
-          if(!items.length) return;
+          if(!items.length) {
+            const sectionEl = ul.parentElement;
+            if (sectionEl) sectionEl.classList.add('hidden');
+            return;
+          };
           ul.innerHTML = items.map((a,i)=>`
             <li ${i? 'class="pt-4 border-t border-gray-200 dark:border-gray-800"':''}>
               <a href="${escape(a.url)}" class="font-semibold hover:text-blue-600">${escape(a.title)}</a>
-              <p class="text-xs text-gray-500">${escape(a.author||'Staff')} • ${fmtDate(a.date)}</p>
-            </li>
-          `).join('');
+              <p class="text-xs text-gray-500 mt-1">${escape(a.author||'Staff')} • ${fmtDate(a.date)}</p>
+            </li>`).join('');
         }
-        fillSimpleList('#opinion', a=> (a.section||'').includes('opinion'));
-        fillSimpleList('#culture', a=> (a.section||'').includes('culture') || (a.section||'').includes('religion'));
+        fillSimpleList('#opinion', a=> a.section.includes('opinion'));
+        fillSimpleList('#culture', a=> a.section.includes('culture') || a.section.includes('religion'));
 
-        // Update Top Story (uses IDs)
-        const top = parsed.find(a => (a.section || '').includes('top')) || parsed[0];
-        if (top) {
-          const link = document.getElementById('top-link'); if (link) link.href = top.url;
-          const titleEl = document.getElementById('top-title'); if (titleEl) titleEl.textContent = top.title;
-          const dateEl = document.getElementById('top-date'); if (dateEl) dateEl.textContent = `${(top.section || 'Top Story')} • ${fmtDate(top.date)}`;
-          const imgEl = document.getElementById('top-image'); if (imgEl && top.image) imgEl.src = top.image;
-          const authorEl = document.getElementById('top-author'); if (authorEl) authorEl.textContent = `By ${top.author || 'Staff Reporter'}`;
-          const sumEl = document.getElementById('top-summary'); if (sumEl) sumEl.textContent = top.summary || '';
-        }
       }catch(e){
-        console.warn('Auto-list failed', e);
+        console.error('Auto-list failed', e);
       }
     }
-    loadArticles();
+    document.addEventListener('DOMContentLoaded', loadArticles);
   </script>
 </body>
 </html>
