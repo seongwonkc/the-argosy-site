@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Article | The Argosy</title>
+  <meta name="description" content="An article from The Argosy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Netlify Identity Widget -->
+  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- Showdown.js for Markdown to HTML conversion -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Merriweather', 'serif'],
+            serif: ['Roboto Slab', 'serif']
+          }
+        }
+      },
+      // Add the typography plugin for beautiful article styling
+      plugins: [
+        require('@tailwindcss/typography'),
+      ],
+      darkMode: 'class'
+    }
+  </script>
+  <style>
+    :focus-visible { outline: 3px solid #3b82f6; outline-offset: 2px; }
+    body { font-family: 'Merriweather', serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Roboto Slab', serif; }
+    .site-title { font-family: 'Roboto Slab', serif; font-size: 2.25rem; font-weight: 700; }
+  </style>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+</head>
+<body class="bg-white text-gray-900 dark:bg-black dark:text-gray-100">
+
+  <!-- Header -->
+  <header class="bg-white/95 dark:bg-black/95 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-4">
+        <a href="index.html" class="flex items-center gap-3 text-2xl font-serif font-bold tracking-tight shrink-0">
+          <img src="/assets/argosy-logo.png" alt="The Argosy logo" class="h-9 md:h-10" />
+          <span class="site-title">The Argosy</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm font-semibold" aria-label="Primary">
+          <div class="relative" id="categories-dropdown">
+            <button id="categories-btn" class="flex items-center gap-1 hover:text-blue-600">
+              <span>Categories</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+            </button>
+            <div id="categories-menu" class="hidden absolute left-0 mt-2 w-56 bg-white dark:bg-gray-900 shadow-lg ring-1 ring-black ring-opacity-5 z-20">
+              <div class="grid grid-cols-2 gap-1 p-2">
+                <a href="category.html?c=politics" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Politics</a>
+                <a href="category.html?c=health" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Health</a>
+                <a href="category.html?c=business" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Business</a>
+                <a href="category.html?c=science" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Science</a>
+                <a href="category.html?c=environment" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Environment</a>
+                <a href="category.html?c=education" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Education</a>
+                <a href="category.html?c=admissions" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Admissions</a>
+                <a href="category.html?c=sports" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Sports</a>
+                <a href="category.html?c=culture" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Culture</a>
+                <a href="category.html?c=opinion" class="block px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Opinion</a>
+              </div>
+            </div>
+          </div>
+          <a href="team.html" class="hover:text-blue-600">Team</a>
+          <a href="about.html" class="hover:text-blue-600">About</a>
+          <a href="recruit.html" class="hover:text-blue-600">Join</a>
+        </nav>
+        <div class="hidden md:flex items-center gap-4">
+          <a href="https://theargosy.org/admin" target="_blank" rel="noopener noreferrer" class="px-3 py-2 text-sm font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 border border-gray-300 dark:border-gray-700">Crew Login</a>
+          <button id="themeToggle" class="px-2.5 py-2 text-sm border border-gray-300 dark:border-gray-700" aria-pressed="false" aria-label="Toggle dark mode">🌙</button>
+        </div>
+        <button id="menuBtn" class="md:hidden p-2" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 dark:border-gray-800"></div>
+  </header>
+
+  <main id="content" class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <article>
+        <header class="text-center mb-12">
+            <p id="article-category" class="text-sm font-bold text-blue-600 uppercase tracking-wide">Category</p>
+            <h1 id="article-title" class="mt-2 text-4xl md:text-5xl font-bold leading-tight text-gray-900 dark:text-white">Article Title</h1>
+            <div class="mt-6 text-sm">
+                <span id="article-author" class="font-semibold">By Author Name</span>
+                <span class="text-gray-500 mx-2">•</span>
+                <time id="article-date" class="text-gray-500">Publication Date</time>
+            </div>
+        </header>
+
+        <img id="article-image" class="w-full h-auto object-cover mb-12" src="https://placehold.co/1200x600/e2e8f0/4a5568?text=Article+Image" alt="Article hero image">
+        
+        <!-- This is where the formatted article content will go -->
+        <div id="article-content" class="prose dark:prose-invert max-w-none mx-auto text-lg">
+            <!-- Content is loaded here by the script -->
+            <p>Loading article...</p>
+        </div>
+    </article>
+  </main>
+
+  <footer class="bg-gray-900 text-gray-300 mt-16">
+     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <div class="mt-12 border-t border-gray-800 pt-8 text-center">
+        <p class="text-sm">&copy; 2025 Herbart Kita Publishing. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme and menu scripts are identical to index.html
+    const themeBtn = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      root.classList.add('dark');
+      themeBtn?.setAttribute('aria-pressed', 'true');
+    }
+    themeBtn?.addEventListener('click', () => {
+      const isDark = root.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      themeBtn.setAttribute('aria-pressed', String(isDark));
+    });
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    const categoriesBtn = document.getElementById('categories-btn');
+    const categoriesMenu = document.getElementById('categories-menu');
+    const dropdownSvg = categoriesBtn?.querySelector('svg');
+    document.addEventListener('click', (e) => {
+      if (categoriesBtn?.contains(e.target)) {
+        categoriesMenu.classList.toggle('hidden');
+        dropdownSvg?.classList.toggle('rotate-180');
+      } else if (!categoriesMenu?.classList.contains('hidden')) {
+        categoriesMenu.classList.add('hidden');
+        dropdownSvg?.classList.remove('rotate-180');
+      }
+    });
+  </script>
+
+  <script type="module">
+    async function loadArticle() {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('slug'); // We will use a 'slug' to identify articles
+      if (!slug) {
+        document.getElementById('article-title').textContent = 'Article Not Found';
+        document.getElementById('article-content').innerHTML = '<p>No article was specified in the URL.</p>';
+        return;
+      }
+
+      try {
+        const res = await fetch('/articles.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Failed to load articles.json');
+
+        const articles = await res.json();
+        const article = articles.find(a => (a.slug || '') === slug);
+
+        if (!article) {
+          document.getElementById('article-title').textContent = 'Article Not Found';
+          document.getElementById('article-content').innerHTML = `<p>Could not find an article with the slug "${slug}".</p>`;
+          return;
+        }
+        
+        // Populate the page with article data
+        document.title = `${article.title} | The Argosy`;
+        document.getElementById('article-title').textContent = article.title;
+        document.getElementById('article-category').textContent = article.section || 'News';
+        document.getElementById('article-author').textContent = `By ${article.author || 'Staff'}`;
+        document.getElementById('article-date').textContent = new Date(article.date).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+        if (article.image) {
+            document.getElementById('article-image').src = article.image;
+            document.getElementById('article-image').alt = article.image_alt || article.title;
+        }
+
+        // Convert Markdown to HTML and display it
+        const converter = new showdown.Converter();
+        const htmlContent = converter.makeHtml(article.content); // Assumes your markdown is in a 'content' field
+        document.getElementById('article-content').innerHTML = htmlContent;
+
+      } catch (e) {
+        console.error('Failed to load article:', e);
+        document.getElementById('article-title').textContent = 'Error Loading Article';
+        document.getElementById('article-content').innerHTML = '<p>There was a problem loading this article. Please try again later.</p>';
+      }
+    }
+    document.addEventListener('DOMContentLoaded', loadArticle);
+  </script>
+
+</body>
+</html>
