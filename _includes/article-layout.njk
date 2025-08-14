@@ -8,7 +8,7 @@ layout: layout.njk
         <div class="mt-6 text-sm">
             <span class="font-semibold">By {{ author }}</span>
             <span class="text-gray-500 mx-2">•</span>
-            <time class="text-gray-500">{{ date | date: "long" }}</time>
+            <time class="text-gray-500">{{ date | readableDate }}</time>
         </div>
     </header>
 
