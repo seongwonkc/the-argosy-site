@@ -2,6 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
+publish_mode: editorial_workflow
+
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
@@ -34,5 +36,29 @@ collections:
         default: "Education"
       - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Featured Image", name: "image", widget: "image", required: false }
-      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Summary", name: "summary", widget: "text", hint: "1–2 sentences; appears on cards" }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "about.html"
+        label: "About Page"
+        name: "about"
+        fields:
+          - { label: "Raw HTML", name: "body", widget: "text" }
+      - file: "team.html"
+        label: "Team Page"
+        name: "team"
+        fields:
+          - { label: "Raw HTML", name: "body", widget: "text" }
+      - file: "recruit.html"
+        label: "Recruit Page"
+        name: "recruit"
+        fields:
+          - { label: "Raw HTML", name: "body", widget: "text" }
+      - file: "corrections.html"
+        label: "Corrections & Standards"
+        name: "corrections"
+        fields:
+          - { label: "Raw HTML", name: "body", widget: "text" }
