@@ -1,16 +1,235 @@
-<!DOCTYPE html><html><head><meta charset='utf-8'><title>about.html — The Argosy</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us | The Argosy</title>
+    <meta name="description" content="Learn about the mission, history, and values of The Argosy, a student-run newspaper." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'ui-serif', 'Georgia', 'serif']
+                    }
+                }
+            },
+            darkMode: 'class'
+        }
+    </script>
+    <style>
+        :focus-visible { outline: 3px solid #3b82f6; outline-offset: 2px; }
+        .skip-link { position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden; }
+        .skip-link:focus { left: 1rem; top: 1rem; width:auto; height:auto; background:#111827; color:white; padding:.5rem .75rem; border-radius:.375rem; z-index:9999; }
+        .site-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; letter-spacing: .5px; }
+        @media (min-width: 768px){ .site-title { font-size: 2.25rem; } }
+        .site-tagline { font-family: 'Lato', sans-serif; font-size: .8rem; letter-spacing: .15em; text-transform: uppercase; color: #6b7280; }
+        .dark .site-tagline { color: #9ca3af; }
+    </style>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/site.webmanifest">
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-950 dark:text-gray-100">
+    <a href="#content" class="skip-link">Skip to content</a>
 
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
-<link rel="manifest" href="/assets/site.webmanifest">
-<link rel="shortcut icon" href="/assets/favicon.ico">
+    <!-- Header -->
+    <header class="bg-white/90 dark:bg-gray-900/90 backdrop-blur sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-3">
+                <a href="index.html" class="flex items-center gap-3 text-2xl font-serif font-bold tracking-tight">
+                    <img src="/assets/argosy-logo.png" alt="The Argosy logo" class="h-8 md:h-9 shrink-0" />
+                    <span class="site-title">The Argosy</span>
+                </a>
 
-<style>
-/* Argosy masthead fonts */
-.site-title { font-family: 'Cormorant Garamond', serif; font-weight: 700; letter-spacing: .5px; }
-.site-tagline { font-family: 'Lato', sans-serif; font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; color: #6b7280; }
-.dark .site-tagline { color: #9ca3af; }
+                <!-- Ensure correct active link styling -->
+                <nav class="hidden md:flex items-center gap-4 text-sm" aria-label="Primary">
+                    <a href="index.html#top-stories" class="hover:text-blue-600">Top</a>
+                    <a href="index.html#politics" class="hover:text-blue-600">Politics</a>
+                    <a href="index.html#public-health" class="hover:text-blue-600">Health</a>
+                    <a href="index.html#business" class="hover:text-blue-600">Business</a>
+                    <a href="index.html#science-tech" class="hover:text-blue-600">Science</a>
+                    <a href="index.html#environment" class="hover:text-blue-600">Environment</a>
+                    <a href="index.html#college-admissions" class="hover:text-blue-600">Admissions</a>
+                    <a href="team.html" class="hover:text-blue-600">Team</a>
+                    <a href="about.html" class="text-blue-600 font-semibold" aria-current="page">About</a>
+                    <a href="recruit.html" class="hover:text-blue-600">Join</a>
+                </nav>
 
-</style>
-</head><body><h1>about.html</h1></body></html>
+                <div class="hidden md:flex items-center gap-2">
+                    <button id="themeToggle" class="ml-2 px-2.5 py-2 text-sm rounded-md border border-gray-300 dark:border-gray-700" aria-pressed="false" aria-label="Toggle dark mode">🌙</button>
+                </div>
+
+                <button id="menuBtn" class="md:hidden p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900" role="dialog" aria-label="Mobile menu">
+            <div class="px-4 py-3 space-y-2">
+                 <div class="grid grid-cols-2 gap-2 text-sm">
+                    <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="index.html#top-stories">Top</a>
+                    <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="index.html#politics">Politics</a>
+                    <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="index.html#public-health">Health</a>
+                    <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="index.html#business">Business</a>
+                    <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="index.html#science-tech">Science</a>
+                    <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="index.html#environment">Environment</a>
+                    <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="index.html#college-admissions">Admissions</a>
+                    <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="team.html">Team</a>
+                    <a class="px-3 py-2 rounded bg-gray-100 dark:bg-gray-800 text-blue-600 font-semibold" href="about.html" aria-current="page">About</a>
+                    <a class="px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" href="recruit.html">Join</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="content" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+        
+        <!-- Page Header -->
+        <div class="text-center mb-12 md:mb-16">
+            <h1 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 dark:text-white">Treasure from Every Horizon</h1>
+            <p class="mt-3 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-300">The Argosy is a student-run publication committed to navigating the uncharted waters of today’s world — and bringing back what matters. We believe in stories that illuminate, ideas that challenge, and voices that deserve to be heard.</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+            <!-- Our Story Section -->
+            <section id="our-story" class="mb-12 md:mb-16">
+                <h2 class="text-3xl font-serif font-bold mb-4 text-center">Our Story</h2>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+                    <p>Our name comes from the great merchant ships of the Renaissance: swift, resilient, and laden with treasure from distant ports. Like those vessels, we chart our course across politics, science, culture, and more, gathering knowledge and perspective for our readers.</p>
+                    <p>From pitch to publication, our process is rigorous. Reporters research deeply, editors refine relentlessly, and all of us share responsibility for the truth. This is not a passive newsroom — it is a vessel in motion, and every crew member pulls their weight.</p>
+                </div>
+            </section>
+
+            <!-- Values Section -->
+            <section id="values" class="mb-12 md:mb-16 bg-white dark:bg-gray-900 p-8 rounded-xl shadow-md ring-1 ring-gray-200 dark:ring-gray-800">
+                <h2 class="text-3xl font-serif font-bold mb-8 text-center">Our Values</h2>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <!-- Value 1: Passion -->
+                    <div>
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300 mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.657 7.343A8 8 0 0117.657 18.657z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-3.464 0c-.493.493-.493 1.294 0 1.787C6.556 18.396 7 18.5 8 18.5s1.444-.104 1.964-.593a3.001 3.001 0 000-4.785z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold">Passion for the Pursuit</h3>
+                        <p class="mt-2 text-gray-600 dark:text-gray-400">We write because the story matters to us, and because the telling matters to you.</p>
+                    </div>
+                    <!-- Value 2: Perspective -->
+                    <div>
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300 mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold">Perspective Matters</h3>
+                        <p class="mt-2 text-gray-600 dark:text-gray-400">We amplify diverse viewpoints, knowing truth is richer in the round.</p>
+                    </div>
+                    <!-- Value 3: Curiosity -->
+                    <div>
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300 mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 6v-1m0-1H9.342a4 4 0 01-3.17-1.559l-.5-1-.5 1A4 4 0 011 6h10M12 6h3.658a4 4 0 013.17 1.559l.5 1 .5-1A4 4 0 0013.658 6H12zm-2.5 14.5a.5.5 0 11-1 0 .5.5 0 011 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold">Curiosity Above All</h3>
+                        <p class="mt-2 text-gray-600 dark:text-gray-400">We follow the story, even into rough seas.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Coverage Section -->
+            <section id="coverage" class="mb-12 md:mb-16">
+                <h2 class="text-3xl font-serif font-bold mb-4 text-center">What We Cover</h2>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+                    <p>The Argosy’s coverage is broad by design. Our sections — Politics, Health, Business, Science, Environment, Sports, Culture, Opinion, Education, and College Admissions — are less about silos and more about waypoints. Each is a lens through which to view the shifting horizon.</p>
+                </div>
+            </section>
+            
+            <!-- Who We Are Section -->
+            <section id="who-we-are" class="mb-12 md:mb-16">
+                 <h2 class="text-3xl font-serif font-bold mb-4 text-center">Who We Are</h2>
+                <div class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+                    <p>The Argosy is published by Herbart Kita Publishing and helmed by a team of student reporters, editors, and contributors from across the academic spectrum. We are united by our belief that good journalism is not an institution’s privilege — it is a community’s duty.</p>
+                </div>
+            </section>
+
+            <!-- Call to Action -->
+            <section class="text-center bg-gray-100 dark:bg-gray-900 p-8 rounded-lg">
+                <h2 class="text-2xl font-serif font-bold">Support Our Mission</h2>
+                <p class="mt-2 text-gray-600 dark:text-gray-300">If you want to support our mission by buying advertisements, sponsoring articles, or donating, reach out to us at any time! Or, if you're interested in joining our team, check out our "Join" page.</p>
+                <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+                     <a href="mailto:contact@theargosy.com" class="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">Contact Us</a>
+                    <a href="recruit.html" class="inline-block bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600 transition-colors">Join the Team</a>
+                </div>
+            </section>
+        </div>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 mt-12">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-serif font-bold text-white">The Argosy</h3>
+                    <p class="text-gray-400">The independent voice of the student community.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white">Quick Links</h4>
+                    <ul class="mt-2 space-y-1">
+                        <li><a href="about.html" class="hover:text-white">About Us</a></li>
+                        <li><a href="team.html" class="hover:text-white">Our Team</a></li>
+                        <li><a href="recruit.html" class="hover:text-white">Join Us</a></li>
+                        <li><a href="corrections.html" class="hover:text-white">Corrections & Standards</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white">Follow Us</h4>
+                    <div class="mt-2 flex gap-4">
+                        <a href="#" aria-label="Twitter" class="hover:text-white">🐦</a>
+                        <a href="#" aria-label="Instagram" class="hover:text-white">📸</a>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-8 border-t border-gray-800 pt-4 text-center text-sm">© 2025 The Argosy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Persisted theme toggle
+        const themeBtn = document.getElementById('themeToggle');
+        const root = document.documentElement;
+        const stored = localStorage.getItem('theme');
+        if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            root.classList.add('dark');
+            themeBtn && themeBtn.setAttribute('aria-pressed', 'true');
+        }
+        themeBtn?.addEventListener('click', () => {
+            const isDark = root.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeBtn.setAttribute('aria-pressed', String(isDark));
+        });
+
+        // Mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn?.addEventListener('click', () => {
+            const open = mobileMenu.classList.toggle('hidden');
+            menuBtn.setAttribute('aria-expanded', String(!open));
+        });
+    </script>
+
+</body>
+</html>
